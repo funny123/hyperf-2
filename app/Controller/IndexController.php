@@ -11,7 +11,8 @@ declare(strict_types=1);
  */
 
 namespace App\Controller;
-
+use Hyperf\HttpServer\Annotation\AutoController;
+use Hyperf\View\RenderInterface;
 class IndexController extends AbstractController
 {
     public function index()
@@ -23,5 +24,9 @@ class IndexController extends AbstractController
             'method' => $method,
             'message' => "Hello2088 {$user}.",
         ];
+    }
+    public function demo(RenderInterface $render)
+    {
+        return $render->render('index', ['name' => 'Hyperf']);
     }
 }
