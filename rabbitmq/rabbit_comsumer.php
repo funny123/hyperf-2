@@ -43,6 +43,8 @@ while(True){
 $conn->disconnect();   
  
 /**
+ * 
+
  * 消费回调函数
  * 处理消息
  */ 

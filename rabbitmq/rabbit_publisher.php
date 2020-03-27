@@ -13,9 +13,9 @@ $k_route = 'key_1'; //路由key
  
 //创建连接和channel 
 $conn = new AMQPConnection($conn_args);   
-// if (!$conn->connect()) {   
-//     die("Cannot connect to the broker!\n");   
-// }   
+if (!$conn->connect()) {   
+    die("Cannot connect to the broker!\n");   
+}   
 $channel = new AMQPChannel($conn);   
  
 
@@ -26,8 +26,8 @@ $ex->setName($e_name);
 date_default_timezone_set("Asia/Shanghai");
 //发送消息 
 //$channel->startTransaction(); //开始事务  
-for($i=0; $i<5; ++$i){ 
-    sleep(1);//休眠1秒
+for($i=0; $i<5000; ++$i){ 
+    //sleep(1);//休眠1秒
     //消息内容 
     $message = "TEST MESSAGE!".date("h:i:sa");   
     echo "Send Message:".$ex->publish($message, $k_route)."\n";  
